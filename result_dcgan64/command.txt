@@ -1,0 +1,1 @@
+train.py --gpu 0 --batchsize 64 --algorithm dcgan --out result_dcgan64

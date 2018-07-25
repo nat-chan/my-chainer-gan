@@ -177,10 +177,10 @@ def main():
                    priority=extension.PRIORITY_WRITER)
     trainer.extend(sample_generate_light(generator, args.out), trigger=(args.evaluation_interval // 10, 'iteration'),
                    priority=extension.PRIORITY_WRITER)
-    trainer.extend(calc_inception(generator), trigger=(args.evaluation_interval, 'iteration'),
-                   priority=extension.PRIORITY_WRITER)
-    trainer.extend(calc_FID(generator), trigger=(args.evaluation_interval, 'iteration'),
-                   priority=extension.PRIORITY_WRITER)
+#    trainer.extend(calc_inception(generator), trigger=(args.evaluation_interval, 'iteration'),
+#                   priority=extension.PRIORITY_WRITER)
+#    trainer.extend(calc_FID(generator), trigger=(args.evaluation_interval, 'iteration'),
+#                   priority=extension.PRIORITY_WRITER)
     trainer.extend(extensions.ProgressBar(update_interval=10))
 
     # Run the training

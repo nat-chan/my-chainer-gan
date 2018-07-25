@@ -99,7 +99,7 @@ def calc_inception(gen, batchsize=100):
         _, _, _, h, w = ims.shape
         ims = ims.reshape((n_ims, 3, h, w)).astype("f")
 
-        mean, std = inception_score(model, ims)
+        mean, std = inception_score(model, ims) #FIXME ここで落ちる
 
         chainer.reporter.report({
             'inception_mean': mean,
@@ -172,7 +172,7 @@ def calc_FID(gen, batchsize=100, stat_file="%s/cifar-10-fid.npz"%os.path.dirname
         _, _, _, h, w = xs.shape
 
         with chainer.using_config('train', False), chainer.using_config('enable_backprop', False):
-            mean, cov = get_mean_cov(model, np.asarray(xs).reshape((-1, 3, h, w)))
+            mean, cov = get_mean_cov(model, np.asarray(xs).reshape((-1, 3, h, w))) #FIXME 2ここで落ちる
         fid = FID(stat["mean"], stat["cov"], mean, cov)
 
         chainer.reporter.report({
