@@ -10,6 +10,7 @@ from PIL import Image
 model = Generator()
 serializers.load_npz('result_dcgan64/DCGANGenerator_100000.npz', model)
 
+
 # ダックタイピング
 # sample_generate(model, "tmp")(type('',(),{'updater':type('',(),{'iteration':'test'})()})())
 
