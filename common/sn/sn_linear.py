@@ -59,6 +59,15 @@ class SNLinear(Linear):
         Spectral Normalized Weight
         """
         sigma, _u, _ = max_sv.max_singular_value(self.W, self.u, self.Ip)
+
+#        broadcast_to
+#        >>> x
+#        array([0, 1, 2])
+#        >>> y = F.broadcast_to(x, (3, 3))
+#        >>> y.data
+#        array([[0, 1, 2],
+#               [0, 1, 2],
+#               [0, 1, 2]])
         sigma = broadcast_to(sigma.reshape((1, 1)), self.W.shape)
         self.u = _u
         if hasattr(self, 'gamma'):
