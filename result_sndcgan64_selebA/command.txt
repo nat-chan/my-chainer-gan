@@ -1,0 +1,1 @@
+train.py --gpu 0 --algorithm stdgan --architecture sndcgan --out result_sndcgan --n_dis 1 --adam_beta1 0.5 --adam_beta2 0.999
