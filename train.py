@@ -10,6 +10,7 @@ from chainer.training import extensions
 sys.path.append(os.path.dirname(__file__))
 
 from common.dataset import Cifar10Dataset
+from selebA_dataset import SelebADataset #my data set
 from common.evaluation import sample_generate, sample_generate_light, calc_inception, calc_FID
 from common.record import record_setting
 import common.net
@@ -43,7 +44,8 @@ def main():
     report_keys = ["loss_dis", "loss_gen", "inception_mean", "inception_std", "FID"]
 
     # Set up dataset
-    train_dataset = Cifar10Dataset()
+#    train_dataset = Cifar10Dataset()
+    train_dataset = SelebADataset()
     train_iter = chainer.iterators.SerialIterator(train_dataset, args.batchsize)
 
     # Setup algorithm specific networks and updaters

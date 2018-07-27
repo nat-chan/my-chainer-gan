@@ -1,0 +1,70 @@
+~/d/my-chainer-gan [master¶¶] ⡑ 1 python train.py --gpu 0 --batchsize 64 --algorithm dcgan --out result_dcgan64_selebA
+/home/n/.pyenv/versions/3.5.2/lib/python3.5/site-packages/cupy/core/fusion.py:659: FutureWarning: cupy.core.fusion is experimental. The interface can change in the future.
+  util.experimental('cupy.core.fusion')
+load cifar-10.  shape:  (50000, 32, 32, 3)
+use gpu 0
+Exception in main training loop:
+Invalid operation is performed in: Convolution2DFunction (Forward)
+
+Expect: in_types[0].shape[1] == in_types[1].shape[1]
+Actual: 32 != 3
+Traceback (most recent call last):
+  File "/home/n/.pyenv/versions/3.5.2/lib/python3.5/site-packages/chainer/training/trainer.py", line 299, in run
+    update()
+  File "/home/n/.pyenv/versions/3.5.2/lib/python3.5/site-packages/chainer/training/updater.py", line 223, in update
+    self.update_core()
+  File "/home/n/dev/my-chainer-gan/dcgan/updater.py", line 25, in update_core
+    y_real = self.dis(x_real)
+  File "/home/n/dev/my-chainer-gan/common/net.py", line 189, in __call__
+    h = F.leaky_relu(self.c0_0(x))
+  File "/home/n/.pyenv/versions/3.5.2/lib/python3.5/site-packages/chainer/links/connection/convolution_2d.py", line 153, in __call__
+    x, self.W, self.b, self.stride, self.pad)
+  File "/home/n/.pyenv/versions/3.5.2/lib/python3.5/site-packages/chainer/functions/connection/convolution_2d.py", line 437, in convolution_2d
+    y, = fnode.apply(args)
+  File "/home/n/.pyenv/versions/3.5.2/lib/python3.5/site-packages/chainer/function_node.py", line 210, in apply
+    self._check_data_type_forward(in_data)
+  File "/home/n/.pyenv/versions/3.5.2/lib/python3.5/site-packages/chainer/function_node.py", line 278, in _check_data_type_forward
+    self.check_type_forward(in_type)
+  File "/home/n/.pyenv/versions/3.5.2/lib/python3.5/site-packages/chainer/functions/connection/convolution_2d.py", line 58, in check_type_forward
+    x_type.shape[1] == w_type.shape[1],
+  File "/home/n/.pyenv/versions/3.5.2/lib/python3.5/site-packages/chainer/utils/type_check.py", line 514, in expect
+    expr.expect()
+  File "/home/n/.pyenv/versions/3.5.2/lib/python3.5/site-packages/chainer/utils/type_check.py", line 472, in expect
+    '{0} {1} {2}'.format(left, self.inv, right))
+Will finalize trainer extensions and updater before reraising the exception.
+Traceback (most recent call last):
+  File "train.py", line 192, in <module>
+    main()
+  File "train.py", line 188, in main
+    trainer.run()
+  File "/home/n/.pyenv/versions/3.5.2/lib/python3.5/site-packages/chainer/training/trainer.py", line 313, in run
+    six.reraise(*sys.exc_info())
+  File "/home/n/.pyenv/versions/3.5.2/lib/python3.5/site-packages/six.py", line 693, in reraise
+    raise value
+  File "/home/n/.pyenv/versions/3.5.2/lib/python3.5/site-packages/chainer/training/trainer.py", line 299, in run
+    update()
+  File "/home/n/.pyenv/versions/3.5.2/lib/python3.5/site-packages/chainer/training/updater.py", line 223, in update
+    self.update_core()
+  File "/home/n/dev/my-chainer-gan/dcgan/updater.py", line 25, in update_core
+    y_real = self.dis(x_real)
+  File "/home/n/dev/my-chainer-gan/common/net.py", line 189, in __call__
+    h = F.leaky_relu(self.c0_0(x))
+  File "/home/n/.pyenv/versions/3.5.2/lib/python3.5/site-packages/chainer/links/connection/convolution_2d.py", line 153, in __call__
+    x, self.W, self.b, self.stride, self.pad)
+  File "/home/n/.pyenv/versions/3.5.2/lib/python3.5/site-packages/chainer/functions/connection/convolution_2d.py", line 437, in convolution_2d
+    y, = fnode.apply(args)
+  File "/home/n/.pyenv/versions/3.5.2/lib/python3.5/site-packages/chainer/function_node.py", line 210, in apply
+    self._check_data_type_forward(in_data)
+  File "/home/n/.pyenv/versions/3.5.2/lib/python3.5/site-packages/chainer/function_node.py", line 278, in _check_data_type_forward
+    self.check_type_forward(in_type)
+  File "/home/n/.pyenv/versions/3.5.2/lib/python3.5/site-packages/chainer/functions/connection/convolution_2d.py", line 58, in check_type_forward
+    x_type.shape[1] == w_type.shape[1],
+  File "/home/n/.pyenv/versions/3.5.2/lib/python3.5/site-packages/chainer/utils/type_check.py", line 514, in expect
+    expr.expect()
+  File "/home/n/.pyenv/versions/3.5.2/lib/python3.5/site-packages/chainer/utils/type_check.py", line 472, in expect
+    '{0} {1} {2}'.format(left, self.inv, right))
+chainer.utils.type_check.InvalidType:
+Invalid operation is performed in: Convolution2DFunction (Forward)
+
+Expect: in_types[0].shape[1] == in_types[1].shape[1]
+Actual: 32 != 3

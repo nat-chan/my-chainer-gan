@@ -37,6 +37,7 @@ def make_image(model, rows=1, cols=1, seed=0):
         x = x.reshape((rows, cols, 3, h, w))
         x = x.transpose(0, 3, 1, 4, 2)
         x = x.reshape((rows * h, cols * w, 3))
+        print(x.shape)
 
         Image.fromarray(x).show()
 
