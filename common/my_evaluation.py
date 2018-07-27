@@ -129,7 +129,7 @@ def my_inception(gen, batchsize=100):
     model = load_inception_model()
 
     ims = []
-    n_ims = 50000
+    n_ims = 100
     for i in range(0, n_ims, batchsize):
         z = Variable(np.asarray(gen.make_hidden(batchsize)))
 #        with chainer.using_config('train', False), chainer.using_config('enable_backprop', False):

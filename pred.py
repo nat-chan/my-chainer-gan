@@ -8,7 +8,7 @@ from chainer import Variable
 from PIL import Image
 
 model = Generator()
-serializers.load_npz('result_dcgan64_selebA/DCGANGenerator_100000.npz', model)
+serializers.load_npz('result_sndcgan64_selebA/DCGANGenerator_100000.npz', model)
 
 
 # ダックタイピング
