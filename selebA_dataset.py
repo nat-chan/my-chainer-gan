@@ -9,7 +9,7 @@ from chainer.dataset import dataset_mixin
 class SelebADataset(dataset_mixin.DatasetMixin):
     def __init__(self, test=False):
         assert ~test, "testデータの読み込みは未実装"
-        d_train = np.load('ignore/selebA50000float32.npy')
+        d_train = np.load('selebA_dataset/selebA50000float32.npy')
         d_test  = None #TODO
         if test:
             self.ims = d_test
